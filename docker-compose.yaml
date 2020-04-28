@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  appcalc3:
+    build:
+      context: ./
+    image: '${REPO}/appcalc3:${TAG}'
+    ports:
+    - '5000:5000'
