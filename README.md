@@ -31,10 +31,10 @@ Successfully installed Flask-1.1.2 Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1
 
 #### From another tab or host...
 ```
-$ curl http://<ip_address>:5000//appcalc3/api/v1.0/192.168.100.0/24
+$ curl http://<ip_address>:5000/appcalc3/api/v1.0/192.168.100.0/24
 {"Address":"192.168.100.0","Broadcast":"192.168.100.255","CIDR":"24","Mask":"255.255.255.0","Network":"192.168.100.0"}
 
-$ curl http://<ip_address>:5000//appcalc3/api/v1.0/2001:db8::1000  
+$ curl http://<ip_address>:5000/appcalc3/api/v1.0/2001:db8::1000  
 {"Address":"2001:db8::1000","Broadcast":"2001:db8::1000","CIDR":"128","Mask":"ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff","Network":"2001:db8::1000"}
 ```
 
@@ -51,23 +51,23 @@ Successfully tagged ccarmelo/appcalc3:1.0
 
 ### Run the container the imperative way
 ```
-(IP-REST) ~/github/IP-REST > docker run -d -p 5000:5000 ccarmelo/appcalc3:1.0
+(IP-REST) ~/github/IP-REST > docker run -d --rm -p 5000:5000 ccarmelo/appcalc3:1.0
 43ae12154a8e315eaef4d201f9cf6304b874dd5c7bb012605350c7215c34019e
 ```
 **NOTE**: the app listens on port 5000 thus it's necessary to explicitly open the port for its operation
 
 ### Run the container the declarative way (e.g. with `docker-compose.yaml`)
 ```
-(IP-REST) ~/github/IP-REST >  master ●✚ > docker-compose up -d
+(IP-REST) ~/github/IP-REST >  master > docker-compose up -d
 Creating network "ip-rest_default" with the default driver
 Creating ip-rest_appcalc3_1 ... done
 
-(IP-REST) ~/github/IP-REST >  master ●✚ > docker-compose ps
+(IP-REST) ~/github/IP-REST >  master > docker-compose ps
        Name                 Command          State           Ports
 ---------------------------------------------------------------------------
 ip-rest_appcalc3_1   python3 ./appcalc3.py   Up      0.0.0.0:5000->5000/tcp
 
-(IP-REST) ~/github/IP-REST >  master ●✚ > docker-compose down
+(IP-REST) ~/github/IP-REST >  master > docker-compose down
 Stopping ip-rest_appcalc3_1 ... done
 Removing ip-rest_appcalc3_1 ... done
 Removing network ip-rest_default
