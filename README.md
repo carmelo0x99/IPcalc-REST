@@ -6,13 +6,11 @@ A REST implementation of an IPv4/IPv6 subnet calculator
  ~/github/IPcalc-REST > python3 -m venv .
 
  ~/github/IPcalc-REST > source bin/activate
-
-(IPcalc-REST) ~/github/IPcalc-REST > pip3 install Flask
 ```
 
 ### Install any dependencies
 ```
-(IPcalc-REST) ~/github/IPcalc-REST > pip3 install Flask
+(IPcalc-REST) ~/github/IPcalc-REST > python3 -m pip install Flask
 ...
 Successfully installed Flask-1.1.2 Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 itsdangerous-1.1.0
 ```
@@ -40,34 +38,34 @@ $ curl http://<ip_address>:5000/appcalc3/api/v1.0/2001:db8::1000
 
 ### Time to make our app into a container
 ```
-(IPcalc-REST) ~/github/IPcalc-REST > docker build -t ccarmelo/appcalc3:1.0 .
+(IPcalc-REST) ~/github/IPcalc-REST > docker build -t carmelo0x99/appcalc3:1.0 .
 Sending build context to Docker daemon  9.725MB
 Step 1/8 : FROM python:3.7-alpine
 ...
 Step 8/8 : ENTRYPOINT ["python3","./appcalc3.py"]
 ...
-Successfully tagged ccarmelo/appcalc3:1.0
+Successfully tagged carmelo0x99/appcalc3:1.0
 ```
 
 ### Run the container the imperative way
 ```
-(IPcalc-REST) ~/github/IPcalc-REST > docker run -d --rm -p 5000:5000 ccarmelo/appcalc3:1.0
+(IPcalc-REST) ~/github/IPcalc-REST > docker run -d --rm -p 5000:5000 carmelo0x99/appcalc3:1.0
 43ae12154a8e315eaef4d201f9cf6304b874dd5c7bb012605350c7215c34019e
 ```
 **NOTE**: the app listens on port 5000 thus it's necessary to explicitly open the port for its operation
 
 ### Run the container the declarative way (e.g. with `docker-compose.yaml`)
 ```
-(IPcalc-REST) ~/github/IPcalc-REST >  master > docker-compose up -d
+(IPcalc-REST) ~/github/IPcalc-REST >  docker-compose up -d
 Creating network "IPcalc-REST_default" with the default driver
 Creating IPcalc-REST_appcalc3_1 ... done
 
-(IPcalc-REST) ~/github/IPcalc-REST >  master > docker-compose ps
+(IPcalc-REST) ~/github/IPcalc-REST >  docker-compose ps
        Name                 Command          State           Ports
 ---------------------------------------------------------------------------
 IPcalc-REST_appcalc3_1   python3 ./appcalc3.py   Up      0.0.0.0:5000->5000/tcp
 
-(IPcalc-REST) ~/github/IPcalc-REST >  master > docker-compose down
+(IPcalc-REST) ~/github/IPcalc-REST >  docker-compose down
 Stopping IPcalc-REST_appcalc3_1 ... done
 Removing IPcalc-REST_appcalc3_1 ... done
 Removing network IPcalc-REST_default
