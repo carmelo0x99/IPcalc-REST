@@ -12,7 +12,6 @@ A REST implementation of an IPv4/IPv6 subnet calculator
 ```
 (IPcalc-REST) ~/github/IPcalc-REST > python3 -m pip install Flask
 ...
-Successfully installed Flask-1.1.2 Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 itsdangerous-1.1.0
 ```
 
 ### Run local test
