@@ -3,6 +3,7 @@ import ipaddress
 from flask import Flask, abort, jsonify, make_response
 
 app = Flask(__name__)
+PORT = 5050
 
 @app.errorhandler(400)
 def not_an_ip(error):
@@ -24,6 +25,6 @@ def ipdecode(subnet):
 )
 
 if __name__ == '__main__':
-#    app.run(host='0.0.0.0', debug=True)
-    app.run(host='0.0.0.0')
+#    app.run(host='0.0.0.0', debug = True)
+    app.run(host='0.0.0.0', port = PORT)
 
