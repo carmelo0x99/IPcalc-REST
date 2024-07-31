@@ -31,8 +31,8 @@ A REST implementation of an IPv4/IPv6 subnet calculator
 $ curl http://<ip_address>:5050/appcalc3/api/v1.0/192.168.100.0/24
 {"Address":"192.168.100.0","Broadcast":"192.168.100.255","CIDR":"24","Mask":"255.255.255.0","Network":"192.168.100.0"}
 
-$ curl http://<ip_address>:5050/appcalc3/api/v1.0/2001:db8::1000  
-{"Address":"2001:db8::1000","Broadcast":"2001:db8::1000","CIDR":"128","Mask":"ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff","Network":"2001:db8::1000"}
+$ curl http://127.0.0.1:5050/appcalc3/api/v1.0/2001:db8::/64    
+{"Address":"2001:db8::","Broadcast":"2001:db8::ffff:ffff:ffff:ffff","CIDR":"64","Mask":"ffff:ffff:ffff:ffff::","Network":"2001:db8::"}
 ```
 
 ### Time to make our app into a container
